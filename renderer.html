@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        border: 0;
+        vertical-align: baseline;
+        box-sizing: border-box;
+      }
+      .app {
+        display: flex;
+        position: fixed;
+        flex-direction: column;
+        height: 100%;
+        width: 100%;
+      }
+      .title-bar {
+        background-color: blanchedalmond;
+        height: 40px;
+        line-height: 40px;
+        text-align: center;
+        -webkit-app-region: drag;
+        border-bottom: gray 1px solid;
+      }
+      .workspace {
+        flex: 1;
+        display: flex;
+        width: 100%;
+        overflow: hidden;
+      }
+      .slide-preview-container {
+        flex-grow: 0;
+        flex-shrink: 0;
+        flex-direction: column;
+        background-color: rgba(153, 153, 153, 0.1);
+        width: 156px;
+        border-right: gray 1px solid;
+        overflow-y: auto;
+      }
+      .slide-preview-box {
+        padding: 10px 10px;
+        width: 140px;
+        height: 80px;
+      }
+      .selected {
+        background: lightblue;
+        border-left: lightseagreen 5px solid;
+      }
+      .slide-preview {
+        height: 60px;
+        width: 120px;
+        border: black 1px solid;
+        margin-bottom: 20px;
+        pointer-events: none;
+      }
+      .slide-container {
+        display: flex;
+        background-color: rgba(153, 153, 153, 0.2);
+        padding: 30px 20px;
+        width: 100%;
+      }
+      #slide {
+        flex: 1;
+        border: black 1px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="app">
+      <div class="title-bar">RowerPoint</div>
+      <div class="workspace">
+        <div class="slide-preview-container">
+          <div class="slide-preview-box">
+            <div
+              class="slide-preview"
+              style="background-color: sandybrown"
+            ></div>
+          </div>
+          <div class="slide-preview-box">
+            <div class="slide-preview" style="background-color: green"></div>
+          </div>
+          <div class="slide-preview-box">
+            <div
+              class="slide-preview"
+              style="background-color: rosybrown"
+            ></div>
+          </div>
+          <div class="slide-preview-box">
+            <div
+              class="slide-preview"
+              style="background-color: aquamarine"
+            ></div>
+          </div>
+          <div class="slide-preview-box">
+            <div
+              class="slide-preview"
+              style="background-color: sandybrown"
+            ></div>
+          </div>
+          <div class="slide-preview-box">
+            <div class="slide-preview" style="background-color: green"></div>
+          </div>
+          <div class="slide-preview-box">
+            <div
+              class="slide-preview"
+              style="background-color: rosybrown"
+            ></div>
+          </div>
+          <div class="slide-preview-box">
+            <div
+              class="slide-preview"
+              style="background-color: aquamarine"
+            ></div>
+          </div>
+          <div class="slide-preview-box">
+            <div
+              class="slide-preview"
+              style="background-color: sandybrown"
+            ></div>
+          </div>
+          <div class="slide-preview-box">
+            <div class="slide-preview" style="background-color: green"></div>
+          </div>
+          <div class="slide-preview-box">
+            <div
+              class="slide-preview"
+              style="background-color: rosybrown"
+            ></div>
+          </div>
+          <div class="slide-preview-box">
+            <div
+              class="slide-preview"
+              style="background-color: aquamarine"
+            ></div>
+          </div>
+          <div class="slide-preview-box">
+            <div
+              class="slide-preview"
+              style="background-color: sandybrown"
+            ></div>
+          </div>
+          <div class="slide-preview-box">
+            <div class="slide-preview" style="background-color: green"></div>
+          </div>
+          <div class="slide-preview-box">
+            <div
+              class="slide-preview"
+              style="background-color: rosybrown"
+            ></div>
+          </div>
+          <div class="slide-preview-box">
+            <div
+              class="slide-preview"
+              style="background-color: aquamarine"
+            ></div>
+          </div>
+          <div class="slide-preview-box">
+            <div class="slide-preview" style="background-color: gold"></div>
+          </div>
+        </div>
+        <div class="slide-container">
+          <div id="slide"></div>
+        </div>
+      </div>
+    </div>
+    <script type="text/javascript">
+      function deselectAllSlidePreviewBoxes() {
+        document
+          .querySelectorAll(".slide-preview-box.selected")
+          .forEach((box) => {
+            box.classList.remove("selected");
+          });
+      }
+
+      function setSlideColor(color) {
+        document.getElementById("slide").style.backgroundColor = color;
+      }
+
+      function getSlidePreviewBoxColor(box) {
+        return window
+          .getComputedStyle(box.querySelector(".slide-preview"), null)
+          .getPropertyValue("background-color");
+      }
+
+      function onSlidePreviewBoxClick(event) {
+        const box = event.target;
+        deselectAllSlidePreviewBoxes();
+        box.classList.add("selected");
+        setSlideColor(getSlidePreviewBoxColor(box));
+      }
+
+      window.onload = function () {
+        document.querySelectorAll(".slide-preview-box").forEach((box) => {
+          box.addEventListener("click", onSlidePreviewBoxClick);
+        });
+        onSlidePreviewBoxClick({
+          target: document.querySelector(".slide-preview-box"),
+        });
+      };
+    </script>
+  </body>
+</html>

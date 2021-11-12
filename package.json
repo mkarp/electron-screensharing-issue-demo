@@ -1,0 +1,14 @@
+{
+  "name": "electron-frameless-screensharing",
+  "version": "1.0.0",
+  "description": "A minimal project to reproduce screensharing issues with frameless windows in Electron",
+  "main": "main.js",
+  "scripts": {
+    "electron": "electron ."
+  },
+  "author": "Misha Karpenko",
+  "license": "ISC",
+  "dependencies": {
+    "electron": "^15.3.1"
+  }
+}
