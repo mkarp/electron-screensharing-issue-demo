@@ -23,6 +23,12 @@ some specific symptoms to narrow the search area:
 
 I've built this very minimal Electron app to demo the issue.
 
+Here's how the glitches look like:
+
+![2021-11-12 14 13 05](https://user-images.githubusercontent.com/318902/141473909-0c62715a-549f-49b8-b750-8ce9943aa897.gif)
+
+![2021-11-12 14 21 45](https://user-images.githubusercontent.com/318902/141473915-849a0524-0c84-4597-b0a6-08396e42ed21.gif)
+
 Here's a video of me trying to reproduce it:
 
 [![Electron frameless window issue when screensharing](https://img.youtube.com/vi/JrrInNTNN00/0.jpg)](https://www.youtube.com/watch?v=JrrInNTNN00)
@@ -49,7 +55,8 @@ title bar and another frameless window without a title bar.
   used [UNIGINE Valley](https://benchmark.unigine.com/valley). Make sure you run
   it in a windowed mode (not fullscreen).
 
-* Start a new Zoom meeting and begin screensharing your entire desktop.
+* Start a new Zoom meeting, make sure your video is turned on and begin 
+  screensharing your entire desktop.
 
 * Make sure a part of the GPU benchmark window is visible, and also both
   Electron windows are visible too, all at the same time.
