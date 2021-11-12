@@ -29,6 +29,10 @@ Here's how the glitches look like:
 
 ![2021-11-12 14 21 45](https://user-images.githubusercontent.com/318902/141473915-849a0524-0c84-4597-b0a6-08396e42ed21.gif)
 
+With Quartz Debuz (you see yellow flashes every time an area of the screen is repainted). Notice how I click on the last orange slide: the click is registered (you see a circle around the mouse pointer), however the app doesn't respond and there's no yellow flash; when I hover over the system scroll bar, then the window is repainted and you see a yellow flash:
+
+![2021-11-12 16 41 57](https://user-images.githubusercontent.com/318902/141494581-6deab132-575e-4205-ad56-afd81f956ad8.gif)
+
 Here's a video of me trying to reproduce it:
 
 [![Electron frameless window issue when screensharing](https://img.youtube.com/vi/JrrInNTNN00/0.jpg)](https://www.youtube.com/watch?v=JrrInNTNN00)
