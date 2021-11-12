@@ -1,6 +1,32 @@
 # Demo of issues with frameless Electron windows when using screensharing
 
+Some of our customers at [Pitch](https://pitch.com/) have reported that when
+they share their screen via Zoom, sometimes our app would stop responding to
+clicks. It took us a while to reproduce this issue, and I believe we have a
+reliable demo now. Due to my almost complete ignorance of Electron and Zoom
+internals I can't tell exactly how and why this is happening, but I can share
+some specific symptoms to narrow the search area:
+
+* What happens is that content is partially drawn in an Electron window. Some
+  areas of the window show the up-to-date content, while others seem to show the
+  previous state.
+
+* The issue resolves itself with the next event that causes the app to redraw
+  (user interaction, remote sync event etc.)
+
+* It happens only while screensharing. I can reliably reproduce it while
+  screensharing in Zoom, and our customers reported the same behaviour with
+  Microsoft Teams and Google Meet.
+
+* It happens only in a frameless Electron window. We can't reproduce this issue
+  with the same application running in a window with a default macOS title bar.
+
+I've built this very minimal Electron app to demo the issue.
+
+Here's a video of me trying to reproduce it:
+
 [![Electron frameless window issue when screensharing](https://img.youtube.com/vi/JrrInNTNN00/0.jpg)](https://www.youtube.com/watch?v=JrrInNTNN00)
+
 
 ## Requirements
 
@@ -16,8 +42,6 @@ At this point you should see two Electron windows: one with a default macOS
 title bar and another frameless window without a title bar.
 
 ## How to reproduce the issue
-
-Video coming soon.
 
 * Checkout this project and follow the "How to run" steps.
 
