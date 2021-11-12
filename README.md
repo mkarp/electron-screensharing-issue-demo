@@ -1,5 +1,7 @@
 # Demo of issues with frameless Electron windows when using screensharing
 
+[![Electron frameless window issue when screensharing](https://img.youtube.com/vi/JrrInNTNN00/0.jpg)](https://www.youtube.com/watch?v=JrrInNTNN00)
+
 ## Requirements
 
 Project was built using Node 16 and Electron 15.3.1. The error is reproducible
